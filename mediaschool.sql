@@ -31,8 +31,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `children`;
 CREATE TABLE IF NOT EXISTS `children` (
   `CHILD_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `CHILD_FIRSTNAME` varchar(150) NOT NULL,
-  `CHILD_LASTNAME` varchar(150) NOT NULL,
+  `childName` varchar(150) NOT NULL,
+  `childSurname` varchar(150) NOT NULL,
   `CLASS_ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
   PRIMARY KEY (`CHILD_ID`),
@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `children` (
 DROP TABLE IF EXISTS `class`;
 CREATE TABLE IF NOT EXISTS `class` (
   `CLASS_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(150) NOT NULL,
-  `CLASSMATES` varchar(150) NOT NULL,
+  `className` varchar(150) NOT NULL,
+  `classMates` varchar(150) NOT NULL,
   PRIMARY KEY (`CLASS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS `class` (
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `COMMENT_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `CREATEDAT` date NOT NULL,
-  `TEXT` varchar(150) NOT NULL,
+  `createdAt` date NOT NULL,
+  `text` varchar(150) NOT NULL,
   `USER_ID` int(11) NOT NULL,
   `MESSAGE_ID` int(11) NOT NULL,
   PRIMARY KEY (`COMMENT_ID`),
@@ -81,10 +81,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
 DROP TABLE IF EXISTS `messages`;
 CREATE TABLE IF NOT EXISTS `messages` (
   `MESSAGE_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `CREATEDAT` date NOT NULL,
-  `AUTHORS` varchar(50) NOT NULL,
-  `TITLE` varchar(150) NOT NULL,
-  `TEXT` varchar(150) NOT NULL,
+  `createdAt` date NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `text` TEXT NOT NULL,
   `USER_ID` int(11) NOT NULL,
   PRIMARY KEY (`MESSAGE_ID`),
   KEY `MESSAGES_USERS_FK` (`USER_ID`)
@@ -99,11 +99,11 @@ CREATE TABLE IF NOT EXISTS `messages` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `USER_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `FIRSTNAME` varchar(50) NOT NULL,
-  `LASTNAME` varchar(50) NOT NULL,
-  `EMAIL` varchar(255) NOT NULL,
-  `PICS` varchar(500) NOT NULL,
-  `pass` varchar(10) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `surname` varchar(50) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `mdp` TEXT NOT NULL,
+  `image` TEXT NULL,
   PRIMARY KEY (`USER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

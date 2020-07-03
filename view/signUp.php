@@ -1,33 +1,43 @@
-<?php 
-require "../controller/head.php"; 
+<?php
+require "../controller/head.php";
+require "../controller/createAccount.php";
 require "header.php";
 ?>
-
-<div class="col-md-3 offset-4">
-    <form action="" method="post" class="form-group">
-        <div>
-            <label for="name">Nom:</label>
-            <input type="text" name="name" id="name" class="form-control">
-        </div>
-        <div>
-            <label for="surname">prénom:</label>
-            <input type="text" name="surname" id="surname" class="form-control">
-        </div>
-        <div>
-            <label for="email">email:</label>
-            <input type="text" name="email" id="email" class="form-control">
-        </div>
-        <div>
-            <label for="password">mot de passe:</label>
-            <input type="password" name="password" id="pass" class="form-control">
-        </div>
-        <div>
-            <label for="password">vérification:</label>
-            <input type="password" name="password" id="pass" class="form-control">
-        </div>
-        <br>
-        <div>
-            <button type="submit" class="btn btn-primary">Créer mon compte</button>
-        </div>
-    </form>
+<div class="row">
+    <div class="col-md-3 offset-4 signUp">
+        <h2>Inscription</h2>
+        <br><br>
+        <form action="" method="POST" class="form-group">
+            <div>
+                <label for="name">Nom:</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="votre nom" value="<?php if(isset($name)) { echo $name; }?>">
+            </div>
+            <div>
+                <label for="surname">prénom:</label>
+                <input type="text" name="surname" id="surname" class="form-control" placeholder="votre prénom" value="<?php if(isset($surname)) { echo $surname; }?>">
+            </div>
+            <div>
+                <label for="mail">email:</label>
+                <input type="email" name="mail" id="mail" class="form-control" placeholder="votre email" value="<?php if(isset($mail)) { echo $mail; }?>">
+            </div>
+            <div>
+                <label for="mdp">mot de passe:</label>
+                <input type="password" name="mdp" id="mdp" class="form-control" placeholder="votre mot de passe">
+            </div>
+            <div>
+                <label for="mdp2">vérification:</label>
+                <input type="password" name="mdp2" id="mdp2" class="form-control" placeholder="confirmation">
+            </div>
+            <br>
+            <div>
+                <input type="submit" name="formInscription" class="btn btn-primary" value="Créer mon compte">
+            </div>
+        </form>
+        <?php
+            if(isset($erreur))
+            {
+                echo "<p class='text-danger'>" . $erreur . "</p>";
+            }
+        ?>
+    </div>
 </div>

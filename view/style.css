@@ -1,14 +1,19 @@
-body{
+body
+{
     background-image: url('./assets/bg.jpg');
     
     font-family: 'Lemonada', cursive;
 }
-.signUp,.signIn{
+.signUp,.signIn,.profil
+{
+    display: flex;
+    justify-content: center;
     border: solid 2px black;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.6);
 }
-.signUp,.signIn>label{
-    /* border: solid 2px black; */
+
+.signUp,.signIn>label
+{
     font-size: 20px;
 }

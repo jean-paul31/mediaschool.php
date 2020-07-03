@@ -2,7 +2,7 @@
 require "db.php";
 
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);   
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
     if (isset($_POST['formInscription'])) 
     {

@@ -17,7 +17,7 @@ require "../controller/connexion.php";
             <div>
                 <input type="submit" class="btn btn-primary" value="connexion" name="connexion">
             </div>
-            <span>Vous n'avez pas encore de compte? <a href="http://localhost/mediaschool.php/view/signUp.php"> Créer un compte</a></span>
+            <span>Vous n'avez pas encore de compte? <a href="signUp.php"> Créer un compte</a></span>
         </form>
         <?php
             if(isset($erreur))

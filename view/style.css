@@ -4,7 +4,7 @@ body
     
     font-family: 'Lemonada', cursive;
 }
-.signUp,.signIn,.profil
+.signUp,.signIn,.profil,.message
 {
     display: flex;
     justify-content: center;
@@ -16,4 +16,8 @@ body
 .signUp,.signIn>label
 {
     font-size: 20px;
+}
+img{
+    border-radius: 75%;
+    border:solid 2px black;
 }

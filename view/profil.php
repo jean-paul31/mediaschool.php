@@ -1,37 +1,40 @@
 <?php 
-require "../controller/db.php";
+session_start();
+
 require "../controller/head.php";
 require "header.php";
+require "../controller/profil.controler.php";
 
 
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);  
 
-if (isset($_GET['id']) AND $_GET['id'] > 0 ) 
-{
-     
-    $getId = intval($_GET['id']);
-    $reqUser = $conn-> prepare('SELECT * FROM users WHERE id = ?');
-    $reqUser->execute(array($getId));
-    $userInfo = $reqUser->fetch();
 
 ?>
     <div class="row">
-        <div class="col-md-7 offset-3 profil">
+        <div class="col-md-7 offset-2 profil">
             <div>
                 <h2>Profil de <?php echo $userInfo['surname'] ?></h2>
                 <br><br>
-                nom = <?php echo $userInfo['name'] ?>
+                <?php
+                    if(!empty($userInfo['avatar']))
+                    {
+                        ?>
+                        <img src="assets/membres/avatars/<?php echo $userInfo['avatar'];?>" alt="" class="avatar" width="150px">
+                        <?php
+                    }
+                ?>
                 <br>
-                prenom = <?php echo $userInfo['surname'] ?>
+                nom : <?php echo $userInfo['name'] ?>
                 <br>
-                mail = <?php echo $userInfo['mail'] ?>
+                prenom : <?php echo $userInfo['surname'] ?>
+                <br>
+                mail : <?php echo $userInfo['mail'] ?>
                 <br>
                 <?php
             if(isset($_SESSION['id']) AND $userInfo['id'] == $_SESSION['id'])
             {
                 ?>
-                <a href="#">Editer mon profil</a>
-                <a href="deconnexion.php">se déconnecter</a>
+                <a href="editProfile.php">Editer mon profil</a>
+                <a href="deconnexion.php"">se déconnecter</a>
                 <?php
             }
         ?>
@@ -40,6 +43,5 @@ if (isset($_GET['id']) AND $_GET['id'] > 0 )
  
     </div>
     <?php 
-}
     require "footer.php";
     ?>

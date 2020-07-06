@@ -10,7 +10,7 @@ require "../controller/editProfil.controler.php";
         <div class="col-md-7 offset-2 profil">
             <div>
                 <h2>Editer mon profil</h2>
-                <br><br>
+                <br>
                 <form action="" method="POST" class="form-group" enctype="multipart/form-data">
                     <label for="newName">Nom:</label>
                     <input type="text" name="newName" id="newName" placeholder="name" class="form-control" value="<?php echo $user['name']; ?>"><br>

@@ -1,5 +1,5 @@
 <?php
-require "../controller/messageList.controler.php";
+require "../controller/singleArticle.controler.php";
 ?>
 <div class="row">
     <div class="col-md-3 offset-4 list">
@@ -9,8 +9,8 @@ require "../controller/messageList.controler.php";
             ?>
             <tr>
                 <td>
-                    <h2><a href="<?php echo "singleArticle.php?=" . $messageInfo['id']?> "  name="singleArticle" id="singleArticle"><?php echo $messageInfo['title'];?></a></h2>
-                    <span><?php echo $messageInfo['createdAt'];?></span>
+                    <h2><a href="<?php echo "singleArticle.php?=" . $messageInfo['id']?> "  name="singleArticle" id="singleArticle"><?= $messageInfo['title'];?></a></h2>
+                    <span><?= $messageInfo['createdAt'];?></span>
                 </td>
             </tr>  
         <?php

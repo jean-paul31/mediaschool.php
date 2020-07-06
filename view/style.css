@@ -1,23 +1,33 @@
-body
-{
+body {
     background-image: url('./assets/bg.jpg');
-    
     font-family: 'Lemonada', cursive;
 }
-.signUp,.signIn,.profil,.message
-{
+
+.signUp,
+.signIn,
+.profil,
+.message,
+.list,
+.singlePost {
     display: flex;
-    justify-content: center;
+    align-items: center;
     border: solid 2px black;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.6);
+    flex-direction: column;
 }
 
-.signUp,.signIn>label
-{
+.signUp,
+.signIn>label {
     font-size: 20px;
 }
-img{
+
+.pseudo {
+    align-items: center;
+    justify-content: right;
+}
+
+img {
     border-radius: 75%;
-    border:solid 2px black;
+    border: solid 2px black;
 }

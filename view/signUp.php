@@ -5,8 +5,10 @@ require "header.php";
 ?>
 <div class="row">
     <div class="col-md-3 offset-4 signUp">
-        <h2>Inscription</h2>
-        <br><br>
+        <div>
+            <h2>Inscription</h2>
+        </div>       
+        <br>
         <form action="" method="POST" class="form-group">
             <div>
                 <label for="name">Nom:</label>
@@ -28,6 +30,7 @@ require "header.php";
                 <label for="mdp2">vérification:</label>
                 <input type="password" name="mdp2" id="mdp2" class="form-control" placeholder="confirmation">
             </div>
+            <span>Vous avez deja un compte? <a href="signIn.php"> Me connecter</a></span>
             <br>
             <div>
                 <input type="submit" name="formInscription" class="btn btn-primary" value="Créer mon compte">

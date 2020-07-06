@@ -59,7 +59,7 @@ if (isset($_SESSION['id'])) {
                         'avatar' => $_SESSION['id'] . "." . $extensionUpload, 
                         'id' => $_SESSION['id']
                     ));
-                    header('Location: profil.php?=' . $_SESSION['id']);
+                    header('Location: profil.php?id=' . $_SESSION['id']);
                 }
                 else 
                 {

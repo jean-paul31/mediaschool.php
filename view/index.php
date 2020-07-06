@@ -1,9 +1,9 @@
 <?php
 require "../controller/head.php";
 require "header.php";
-require "redaction.php";
+require "messagesList.php";
 
 
 
-    require "footer.php";
+require "footer.php";
 ?>

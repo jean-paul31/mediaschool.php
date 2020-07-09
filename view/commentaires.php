@@ -7,7 +7,7 @@ require "../controller/commentaire.control.php";
             while ($commentInfo = $reqComment->fetch()){
                 if ($commentInfo['message_id'] == $_GET['art_id']) {
                     ?>
-                    <img src="assets/membres/avatars/<?= $commentInfo['avatar']?>" alt="" width="100px" height="100px" class="avatar">
+                    <img src="assets/membres/avatars/<?= $commentInfo['avatar']?>" alt="" width="50px" height="50px" class="avatarComm">
                     <span><?= $commentInfo['surname']?></span>
                     <p><?= $commentInfo['c_texte']?></p><br><br>
         

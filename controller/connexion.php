@@ -21,7 +21,7 @@ require "db.php";
                 $_SESSION['id'] = $userinfo['id'];
                 $_SESSION['name'] = $userinfo['name'];
                 $_SESSION['mail'] = $userinfo['mail'];
-                header("Location: profil.php?id=" . $_SESSION['id']);
+                header("Location: index.php?id=" . $_SESSION['id']);
             }
             else
             {

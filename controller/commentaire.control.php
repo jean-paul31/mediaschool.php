@@ -20,3 +20,5 @@ if(isset($_GET['art_id'])){
 
     $reqComment = $conn-> query('SELECT *FROM comments JOIN users ON comments.user_id = users.id JOIN messages ON comments.message_id = messages.m_id');
     $reqComment->execute(array());
+
+    

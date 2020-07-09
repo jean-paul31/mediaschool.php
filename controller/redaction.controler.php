@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 require "db.php";
 
@@ -16,7 +16,7 @@ if (isset($_POST['formRedaction'])) {
         $content = htmlspecialchars($_POST['content']);
         $insertMessage = $conn->prepare("INSERT INTO messages(user_id, createdAt, title, texte) VALUES (?, ?, ?, ?)");
         $insertMessage->execute(array($author, $date, $title, $content));
-        header("Location: index.php");
+        header("Location: index.php?id=" . $_SESSION['id']);
 
     }
     else

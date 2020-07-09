@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../controller/head.php";
 require "../controller/createAccount.php";
 require "header.php";

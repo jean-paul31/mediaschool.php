@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../controller/head.php";
 require "header.php";
 require "../controller/redaction.controler.php";

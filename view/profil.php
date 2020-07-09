@@ -34,7 +34,6 @@ require "../controller/profil.controler.php";
             {
                 ?>
                 <a href="editProfile.php">Editer mon profil</a>
-                <a href="deconnexion.php"">se déconnecter</a>
                 <?php
             }
         ?>

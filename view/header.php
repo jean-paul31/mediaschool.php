@@ -11,10 +11,28 @@ require "../controller/header.control.php";
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="http://localhost/mediaschool.php/view/signIn.php">Connexion</a>
+        <?php
+          if (!isset($_SESSION['id'])) {?>
+            <a class="nav-link" href="signIn.php">Connexion</a>
+            <?php
+          }
+          else
+          {
+            ?>
+            <a class="nav-link" href="deconnexion.php">deconnexion</a>
+            <?php
+          }
+        ?>
+        
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?=$monCompte?>">Mon Compte</a>
+      <?php
+          if (isset($_SESSION['id'])) {?>
+            <a class="nav-link" href="<?=$monCompte?>">Mon Compte</a>
+            <?php
+          }
+        ?>
+        
       </li>
     </ul>
   </div>

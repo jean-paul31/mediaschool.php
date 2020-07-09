@@ -13,14 +13,14 @@ if (isset($_GET['art_id'])) {
 }
 else
 {
-    $erreur = "une erreur est survenue lors duchargement !";
+    $erreur = "une erreur est survenue lors du chargement !";
 }
 
     
     
   if (isset($_POST['erase'])) {
       $eraseArticle = $conn->prepare("DELETE FROM messages WHERE messages.m_id = ?");
-      $eraseArticle->execute(array($_GET['id']));
+      $eraseArticle->execute(array($_GET['art_id']));
       header("Location: index.php?id=" . $_SESSION['id']);
   }
 

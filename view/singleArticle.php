@@ -6,7 +6,9 @@ require "../controller/singleArticle.controler.php";
 require "../controller/messageList.controler.php";
 require "../controller/profil.controler.php";
 
-if (isset($_GET['id']) AND $_GET['id'] == $articleInfo['id']) {
+
+
+if (isset($_GET['art_id'])) {
 
     while ($articleInfo = $reqArticle->fetch()) 
     {

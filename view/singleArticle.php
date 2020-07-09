@@ -23,13 +23,17 @@ if (isset($_GET['art_id'])) {
                 <h2><?= $articleInfo['title'];?></h2>
                 <span><?= $articleInfo['createdAt'];?></span>        
                 <p><?= $articleInfo['texte'];?></p>     
-                <br>
+                <br><br>
+                <div>
+                    <?php require "commentaires.php"; ?>
+                </div>
                 <button class="btn btn-warning" name="erase">effacer</button>
 
             </div>
         </div>
     <?php
     }
+    
 }
 require "footer.php";
 ?>

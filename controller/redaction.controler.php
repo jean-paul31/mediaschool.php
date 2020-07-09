@@ -22,7 +22,6 @@ if (isset($_POST['formRedaction'])) {
     else
     {
     $erreur = "Une erreur est survenue !";
-    echo"pas ok";
     }
 }
 

@@ -5,7 +5,8 @@ require "../controller/singleArticle.controler.php";
 require "../controller/messageList.controler.php";
 require "../controller/profil.controler.php";
 
-?>
+
+if (isset($_GET['id']) AND $_GET['id'] == $articleInfo['id']) {?>
 
 <div class="row">
     <div class="col-md-7 offset-2 singlePost">
@@ -20,5 +21,6 @@ require "../controller/profil.controler.php";
     </div>
 </div>
 <?php
-
+}
+print $messageInfo['id'];
 require "footer.php";

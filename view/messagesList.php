@@ -9,7 +9,7 @@ require "../controller/singleArticle.controler.php";
             ?>
             <tr>
                 <td>
-                    <h2><a href="<?php echo "singleArticle.php?=" . $messageInfo['id']?> "  name="singleArticle" id="singleArticle"><?= $messageInfo['title'];?></a></h2>
+                    <h2><a href="<?php echo "singleArticle.php?=" . $articleInfo['id']?> "  name="singleArticle" id="singleArticle"><?= $messageInfo['title'];?></a></h2>
                     <span><?= $messageInfo['createdAt'];?></span>
                 </td>
             </tr>  

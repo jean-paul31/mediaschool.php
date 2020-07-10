@@ -44,32 +44,30 @@ if (isset($_SESSION['id'])) {
 
     if (isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name'])) {
         $tailleMax = 2097152;
-        $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
         if ($_FILES['avatar']['size']<=$tailleMax) 
         {
-            $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
-            if (in_array($extensionUpload, $extensionsValides)) 
-            {
-                $pathimg = "assets/membres/avatars/" . $_SESSION['id'] . "." . $extensionUpload;
+                $nomDuFichier = $_POST['avatar'];
+                $whachName = preg_replace('~[^\\pL\d]+~u', '-', $nomDuFichier);
+                $whachName = trim($whachName, '-');
+                // $whachName = iconv('utf-8', 'us-ascii//TRANSLIT', $whachName);
+                $whachName = strtolower($whachName);
+                $cleanName = preg_replace('~[^-\w]+~', '', $whachName);
+                $extension = substr(strrchr($_FILES['avatar']['name'], "."), 1); 
+                $pathimg = "assets/membres/avatars/" . $cleanName . "." . $extension;
                 $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $pathimg);
                 if ($resultat) 
                 {
                     $updateAvatar = $conn->prepare('UPDATE users SET avatar = :avatar WHERE id = :id');
                     $updateAvatar->execute(array(
-                        'avatar' => $_SESSION['id'] . "." . $extensionUpload, 
-                        'id' => $_SESSION['id']
+                    'avatar' => $cleanName . "." . $extension, 
+                    'id' => $_SESSION['id']
                     ));
-                    header('Location: profil.php?id=' . $_SESSION['id']);
+                    $msg = "Le fichier à bien été uploadé!";
                 }
                 else 
                 {
-                    $msg = "Erreur lors de l'importation de votre photo de profil !";
+                    $msg = "Il y a eu un probleme lors du chargement";
                 }
-            }
-            else
-            {
-                $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
-            }
         }
         else
         {

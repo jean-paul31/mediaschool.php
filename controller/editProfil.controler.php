@@ -51,53 +51,14 @@ if (isset($_SESSION['id'])) {
 
     if (isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name'])) 
     {
-        if(finfo_file($finfo, $resultat )) 
-        {
         $tailleMax = 2097152;
-<<<<<<< HEAD
-        $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
-
         if ($_FILES['avatar']['size']<=$tailleMax) 
         {
-            $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
-            if (in_array($extensionUpload, $extensionsValides)) 
-            {                
-                $pathimg = "assets/membres/avatars/" . $_SESSION['id'] . "." . $extensionUpload;
-                $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $pathimg);
-                
-                    if ($resultat) 
-                    {
-                        $updateAvatar = $conn->prepare('UPDATE users SET avatar = :avatar WHERE id = :id');
-                        $updateAvatar->execute(array
-                        (
-                            'avatar' => $_SESSION['id'] . "." . $extensionUpload, 
-                            'id' => $_SESSION['id']
-                        ));
-                        header('Location: profil.php?id=' . $_SESSION['id']);
-                    }
-                    else 
-                    {
-                        $msg = "Erreur lors de l'importation de votre photo de profil !";
-                    }
-                }
-                else 
-                {
-                   $msg = "le fichier que vous tentez d'uploader n'est pas une image !"; 
-                   
-                }
-                        
-            }
-            else
-            {
-                $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
-            }
-=======
-        if ($_FILES['avatar']['size']<=$tailleMax) 
-        {
+            $monMime = mime_content_type($_FILES['avatar']['tmp_name']);
+            if ($monMime == "image/jpeg" OR $monMime == "image/jpg" OR $monMime == "image/png" OR $monMime == "image/gif") {
                 $nomDuFichier = $_POST['avatar'];
                 $whachName = preg_replace('~[^\\pL\d]+~u', '-', $nomDuFichier);
                 $whachName = trim($whachName, '-');
-                // $whachName = iconv('utf-8', 'us-ascii//TRANSLIT', $whachName);
                 $whachName = strtolower($whachName);
                 $cleanName = preg_replace('~[^-\w]+~', '', $whachName);
                 $extension = substr(strrchr($_FILES['avatar']['name'], "."), 1); 
@@ -116,15 +77,18 @@ if (isset($_SESSION['id'])) {
                 {
                     $msg = "Il y a eu un probleme lors du chargement";
                 }
->>>>>>> 1d02a8d4a1a521b601c86d7bec498e83f36f3b0f
+            }
+            else 
+            {
+                $msg = "votre avatar doit etre de type jpg ou jpeg, png ou gif";
+            }
+            
         }
         else
         {
             $msg = "Votre photo de profil ne doit pas dépasser 2 Mo";
         }
-    }
-} 
-else 
-{
-    header("Location: editProfile.php");
+
+    } 
+
 }

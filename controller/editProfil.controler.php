@@ -54,6 +54,7 @@ if (isset($_SESSION['id'])) {
         if(finfo_file($finfo, $resultat )) 
         {
         $tailleMax = 2097152;
+<<<<<<< HEAD
         $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
 
         if ($_FILES['avatar']['size']<=$tailleMax) 
@@ -90,6 +91,32 @@ if (isset($_SESSION['id'])) {
             {
                 $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
             }
+=======
+        if ($_FILES['avatar']['size']<=$tailleMax) 
+        {
+                $nomDuFichier = $_POST['avatar'];
+                $whachName = preg_replace('~[^\\pL\d]+~u', '-', $nomDuFichier);
+                $whachName = trim($whachName, '-');
+                // $whachName = iconv('utf-8', 'us-ascii//TRANSLIT', $whachName);
+                $whachName = strtolower($whachName);
+                $cleanName = preg_replace('~[^-\w]+~', '', $whachName);
+                $extension = substr(strrchr($_FILES['avatar']['name'], "."), 1); 
+                $pathimg = "assets/membres/avatars/" . $cleanName . "." . $extension;
+                $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $pathimg);
+                if ($resultat) 
+                {
+                    $updateAvatar = $conn->prepare('UPDATE users SET avatar = :avatar WHERE id = :id');
+                    $updateAvatar->execute(array(
+                    'avatar' => $cleanName . "." . $extension, 
+                    'id' => $_SESSION['id']
+                    ));
+                    $msg = "Le fichier à bien été uploadé!";
+                }
+                else 
+                {
+                    $msg = "Il y a eu un probleme lors du chargement";
+                }
+>>>>>>> 1d02a8d4a1a521b601c86d7bec498e83f36f3b0f
         }
         else
         {

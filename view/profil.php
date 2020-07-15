@@ -34,7 +34,7 @@ require "../controller/editProfil.controler.php";
             if(isset($_SESSION['id']) AND $userInfo['id'] == $_SESSION['id'])
             {
                 ?>
-                <a href="editProfile.php">Editer mon profil</a>
+                <a href="<?php echo "editProfile.php?id=" . $_SESSION['id'] ?>">Editer mon profil</a>
                 <?php
             }
             if (isset($msg)) 

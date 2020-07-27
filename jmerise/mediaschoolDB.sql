@@ -4,33 +4,34 @@
 
 
 #------------------------------------------------------------
-# Table: USERS
+# Table: users
 #------------------------------------------------------------
 
-CREATE TABLE USERS(
-        USER_ID   Int  Auto_increment  NOT NULL ,
-        FIRSTNAME Varchar (50) NOT NULL ,
-        LASTNAME  Varchar (50) NOT NULL ,
-        EMAIL     Varchar (255) NOT NULL ,
-        PICS      Varchar (500) NOT NULL
-	,CONSTRAINT USERS_PK PRIMARY KEY (USER_ID)
+CREATE TABLE users(
+        id   Int  Auto_increment  NOT NULL ,
+        name Varchar (50) NOT NULL ,
+        surname  Varchar (50) NOT NULL ,
+        mail     Varchar (255) NOT NULL ,
+        mdp      text NOT NULL ,
+        avatar   text NULL ,
+        admin    boolean NULL
+	,CONSTRAINT USERS_PK PRIMARY KEY (user_id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: MESSAGES
+# Table: messages
 #------------------------------------------------------------
 
 CREATE TABLE MESSAGES(
-        MESSAGE_ID Int  Auto_increment  NOT NULL ,
-        CREATEDAT  Date NOT NULL ,
-        AUTHORS    Varchar (50) NOT NULL ,
+        m_id Int  Auto_increment  NOT NULL ,
+        createdAt  Varchar (255) NOT NULL ,
+        title    Varchar (150) NOT NULL ,
         TITLE      Varchar (150) NOT NULL ,
-        TEXT       Varchar (150) NOT NULL ,
-        USER_ID    Int NOT NULL
+        user_id   Int NOT NULL
 	,CONSTRAINT MESSAGES_PK PRIMARY KEY (MESSAGE_ID)
 
-	,CONSTRAINT MESSAGES_USERS_FK FOREIGN KEY (USER_ID) REFERENCES USERS(USER_ID)
+	,CONSTRAINT MESSAGES_USERS_FK FOREIGN KEY (user_id) REFERENCES users(id)
 )ENGINE=InnoDB;
 
 
@@ -39,27 +40,27 @@ CREATE TABLE MESSAGES(
 #------------------------------------------------------------
 
 CREATE TABLE COMMENTS(
-        COMMENT_ID Int  Auto_increment  NOT NULL ,
-        CREATEDAT  Date NOT NULL ,
-        TEXT       Varchar (150) NOT NULL ,
-        USER_ID    Int NOT NULL ,
-        MESSAGE_ID Int NOT NULL
+        c_id Int  Auto_increment  NOT NULL ,
+        createdAt  timestamp CURRENT_TIMESTAMP ,
+        c_text     text NOT NULL ,
+        user_id    Int NOT NULL ,
+        message_id Int NOT NULL
 	,CONSTRAINT COMMENTS_PK PRIMARY KEY (COMMENT_ID)
 
-	,CONSTRAINT COMMENTS_USERS_FK FOREIGN KEY (USER_ID) REFERENCES USERS(USER_ID)
-	,CONSTRAINT COMMENTS_MESSAGES0_FK FOREIGN KEY (MESSAGE_ID) REFERENCES MESSAGES(MESSAGE_ID)
+	,CONSTRAINT COMMENTS_USERS_FK FOREIGN KEY (user_id) REFERENCES USERS(id)
+	,CONSTRAINT COMMENTS_MESSAGES0_FK FOREIGN KEY (message_id) REFERENCES messages(m_id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: CLASS
+# Table: class
 #------------------------------------------------------------
 
 CREATE TABLE CLASS(
-        CLASS_ID   Int  Auto_increment  NOT NULL ,
-        NAME       Varchar (150) NOT NULL ,
-        CLASSMATES Varchar (150) NOT NULL
-	,CONSTRAINT CLASS_PK PRIMARY KEY (CLASS_ID)
+        cl_id   Int  Auto_increment  NOT NULL ,
+        name       Varchar (150) NOT NULL ,
+        classMates Varchar (150) NOT NULL
+	,CONSTRAINT CLASS_PK PRIMARY KEY (cl_id)
 )ENGINE=InnoDB;
 
 
@@ -68,14 +69,14 @@ CREATE TABLE CLASS(
 #------------------------------------------------------------
 
 CREATE TABLE CHILDREN(
-        CHILD_ID        Int  Auto_increment  NOT NULL ,
-        CHILD_FIRSTNAME Varchar (150) NOT NULL ,
-        CHILD_LASTNAME  Varchar (150) NOT NULL ,
-        CLASS_ID        Int NOT NULL ,
-        USER_ID         Int NOT NULL
+        ch_id        Int  Auto_increment  NOT NULL ,
+        childName Varchar (150) NOT NULL ,
+        childSurname  Varchar (150) NOT NULL ,
+        class_id        Int NOT NULL ,
+        user_id         Int NOT NULL
 	,CONSTRAINT CHILDREN_PK PRIMARY KEY (CHILD_ID)
 
-	,CONSTRAINT CHILDREN_CLASS_FK FOREIGN KEY (CLASS_ID) REFERENCES CLASS(CLASS_ID)
-	,CONSTRAINT CHILDREN_USERS0_FK FOREIGN KEY (USER_ID) REFERENCES USERS(USER_ID)
+	,CONSTRAINT CHILDREN_CLASS_FK FOREIGN KEY (class_id) REFERENCES class(cl_id)
+	,CONSTRAINT CHILDREN_USERS0_FK FOREIGN KEY (user_id) REFERENCES users(id)
 )ENGINE=InnoDB;
 

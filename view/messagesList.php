@@ -1,11 +1,12 @@
 <?php
+
 require "../controller/singleArticle.controler.php";
 ?>
 <div class="new">
     <a class="btn btn-primary add" href="redaction.php">+</a>
 </div>
 <div class="row">
-    <div class="col-md-3 offset-4 list">
+    <div class="col-md-4 offset-4 center-block  my-auto  list">
         <?php
         while ($messageInfo = $reqMessage->fetch()) 
         {$articleId = "singleArticle.php?id=" . $_SESSION['id'] . "&art_id=" . $messageInfo['m_id'];

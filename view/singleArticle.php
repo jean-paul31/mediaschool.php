@@ -16,7 +16,7 @@ if (isset($_GET['art_id'])) {
         ?>
         <button class="btn btn-default" name="back"><a href="<?=$connexion?>"><i class="fas fa-arrow-circle-left"></i></a></button>
         <div class="row">            
-            <div class="col-md-7 offset-2 singlePost">
+            <div class="col-md-4 offset-4 center-block  my-auto  singlePost">
                 <br>    
                 <div class="pseudo">
                     <img src="assets/membres/avatars/<?= $articleInfo['avatar'];?>" alt="" width="100px" height="100px">

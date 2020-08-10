@@ -11,7 +11,7 @@ else {
     $erreur = "vous devez etre connecté !"
     ?>
     <div class="row">
-        <div class="col-md-7 offset-2 erreur">
+        <div class="col-md-4 offset-4 center-block  my-auto  erreur">
             <span><?= $erreur ?></span>
         </div>
     </div>

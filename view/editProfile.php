@@ -7,7 +7,7 @@ require "../controller/editProfil.controler.php";
 
 ?>
     <div class="row">
-        <div class="col-md-7 offset-2 profil">
+        <div class="col-md-4 offset-4 center-block profil">
             <div>
                 <h2>Editer mon profil</h2>
                 <br>

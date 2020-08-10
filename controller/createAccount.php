@@ -9,8 +9,8 @@ require "db.php";
         $name = htmlspecialchars($_POST['name']);
         $surname = htmlspecialchars($_POST['surname']);
         $mail = htmlspecialchars($_POST['mail']);
-        $mdp = base64_encode($_POST['mdp']);
-        $mdp2 = base64_encode($_POST['mdp2']);
+        $mdp = base64_encode(htmlspecialchars($_POST['mdp']));
+        $mdp2 = base64_encode(htmlspecialchars($_POST['mdp2']));
 
        if(!empty($_POST['name']) AND !empty($_POST['surname']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
        {

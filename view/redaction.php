@@ -6,7 +6,7 @@ require "../controller/redaction.controler.php";
 
 ?>
 <div class="row">
-    <div class="col-md-3 offset-4 message">
+    <div class="col-md-4 offset-4 center-block  my-auto  message">
         <form action="" method="POST" class="form-group">
             <label for="title">Votre titre:</label>
             <input type="text" name="title" id="title" class="form-control"><br>

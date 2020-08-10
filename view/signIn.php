@@ -4,7 +4,7 @@ require "../controller/head.php";
 require "header.php";
 require "../controller/connexion.php";
 ?>
-    <div class="col-md-3 offset-4 signIn">
+    <div class="col-md-4 offset-4 center-block  my-auto signIn">
         <form action="" method="post" class="form-group">
             <div>
                 <label for="mailConnect">email:</label>

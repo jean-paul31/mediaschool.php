@@ -5,7 +5,7 @@ require "../controller/createAccount.php";
 require "header.php";
 ?>
 <div class="row">
-    <div class="col-md-3 offset-4 signUp">
+    <div class="col-md-4 offset-4 center-block  my-auto signUp">
         <div>
             <h2>Inscription</h2>
         </div>       

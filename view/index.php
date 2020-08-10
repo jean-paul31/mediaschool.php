@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     require "messagesList.php";
 }
 else {
-    $erreur = "vous devez etre connecté !"
+    $erreur = "vous devez etre connecté pour voir les messages !"
     ?>
     <div class="row">
         <div class="col-md-4 offset-4 center-block  my-auto  erreur">

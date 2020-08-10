@@ -26,8 +26,13 @@ if (isset($_GET['art_id'])) {
                 <span><?= $articleInfo['createdAt'];?></span>        
                 <p><?= $articleInfo['texte'];?></p>     
                 <br><br>
-                <div>
-                    <?php require "commentaires.php"; ?> <!--integre la partie commentaires-->
+                <div>               
+                    <?php
+                    if ($_SESSION['id']) {
+                        require "commentaires.php"; #integre la partie commentaires
+                    }
+                     
+                    ?> 
                 </div>
             </div>
         </div>

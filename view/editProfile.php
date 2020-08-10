@@ -27,8 +27,12 @@ require "../controller/editProfil.controler.php";
                     <input type="submit" value="Mettre à jour mon profil !" class="btn btn-primary">
                 </form>
                 <?php
-                    if(isset($msg)){ echo "<p class='text-danger'>" . $msg . "</p>"; }
-                ?>
+                if(isset($msg)){ 
+                    ?>
+                    <p class='text-danger'><?= $msg ?></p>
+                    <?php
+                        }
+                    ?>
             </div>
         </div>
     </div>

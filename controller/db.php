@@ -1,6 +1,6 @@
 <?php
 
-//Se connecter à la base de données
+// identifiants nécessaires pour se connecter à la base de données
 	
 $servername='localhost';
 $username='adminJP';

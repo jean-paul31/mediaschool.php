@@ -3,7 +3,7 @@
 require "../controller/db.php";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-$finfo = finfo_open(FILEINFO_MIME_TYPE);
+// $finfo = finfo_open(FILEINFO_MIME_TYPE);
 
 if (isset($_SESSION['id'])) {
 

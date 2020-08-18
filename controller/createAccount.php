@@ -28,7 +28,7 @@ require "db.php";
                         {
                             $insertUsers = $conn->prepare("INSERT INTO users(name, surname, mail, mdp) VALUES (?, ?, ?, ?)");
                             $insertUsers -> execute(array($name, $surname, $mail, $mdp));
-                            $erreur = "Votre compte a bien été créé !";
+                            $msg = "Votre compte a bien été créé !";
                             header('Location: signIn.php');
 
                         }

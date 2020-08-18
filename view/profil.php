@@ -11,8 +11,8 @@ require "../controller/editProfil.controler.php";
 
 ?>
     <div class="row">
-        <div class="col-md-7 offset-2 profil">
-            <div>
+        <div class="col-md-3 offset-4 profil">
+            <div class="perso">
                 <h2>Profil de <?php echo $userInfo['surname'] ?></h2>
                 <br><br>
                 <?php

@@ -1,6 +1,6 @@
 <?php
 
-require "db.php";
+require_once "db.php";
 
 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);   

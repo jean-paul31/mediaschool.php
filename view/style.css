@@ -4,6 +4,10 @@ body {
     font-family: 'Lemonada', cursive;
 }
 
+navbar{
+    width: 100%;
+}
+
 .signUp,
 .signIn,
 .profil,

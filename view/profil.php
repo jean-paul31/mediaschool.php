@@ -16,8 +16,13 @@ require "../controller/editProfil.controler.php";
                 <h2>Profil de <?php echo $userInfo['surname'] ?></h2>
                 <br><br>
                 <?php
-                    if(!empty($userInfo['avatar']))
+                    if(empty($userInfo['avatar']))
                     {   
+                        ?>
+                        <img src="./mediaschool/" alt="" class="avatar" width="150px">
+                        
+                        <?php
+                    } else {
                         ?>
                         <img src="assets/membres/avatars/<?php echo $userInfo['avatar'];?>" alt="" class="avatar" width="150px">
                         <?php
